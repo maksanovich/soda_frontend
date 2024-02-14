@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import { NavLink, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import toast from 'react-hot-toast';
 
-import toastr from 'toastr';
-import 'toastr/build/toastr.css';
+import { apiSignUp } from '../../utils/action';
 
 export default function SignUp() {
 
@@ -14,7 +13,7 @@ export default function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         var registerData = {
             firstname: firstname,
             lastname: lastname,
@@ -24,28 +23,28 @@ export default function SignUp() {
 
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!regex.test(email)) {
-            toastr.warning("Email address is invalid", "Warning");
+            toast.error("Email address is invalid", "Warning");
             return;
         }
 
-        axios.post(process.env.REACT_APP_ENDPOINT_URL + '/auth/signup', registerData).then(res => {
-            if (res.data.status == "success") {
-                toastr.success(res.data.message, "Success");
-                navigate("../sign-in");
-            }
+        // await apiSignUp(registerData).then(res => {
+        //     if (res.data.status == "success") {
+        //         toast.success(res.data.message, "Success");
+        //         navigate("../signin");
+        //     }
 
-            else if (res.data.status == "exist") {
-                toastr.success(res.data.message, "Warning");
-            }
+        //     else if (res.data.status == "exist") {
+        //         toast.success(res.data.message, "Warning");
+        //     }
 
-            else {
-                toastr.success("Server Error", "Error");
-            }
-        })
+        //     else {
+        //         toast.success("Server Error", "Error");
+        //     }
+        // })
     }
 
     return (
-        <div className="bg-white p-20 rounded-lg shadow-md">
+        <div className="bg-white p-10 lg:p-20 rounded-lg shadow-md">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Create an account

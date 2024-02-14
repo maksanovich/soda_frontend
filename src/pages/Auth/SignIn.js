@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import axios from 'axios';
+import toast from 'react-hot-toast';
 
-
-import toastr from 'toastr';
-import 'toastr/build/toastr.css';
+import { apiSignIn } from '../../utils/action';
+import { setAuth } from '../../store/reducers/auth';
 
 export default function SignIn() {
     const [email, setEmail] = useState('');
@@ -14,10 +13,10 @@ export default function SignIn() {
 
     const dispatch = useDispatch();
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!regex.test(email)) {
-            toastr.warning("Email address is invalid", "Warning");
+            toast.error("Email address is invalid", "Warning");
             return;
         }
 
@@ -26,29 +25,38 @@ export default function SignIn() {
             password: password
         }
 
-        axios.post(process.env.REACT_APP_ENDPOINT_URL + '/auth/signin', userData).then(res => {
-            if (res.data.status == "success") {
-                toastr.success(res.data.message, "Success");
-                // dispatch(setUser(res.data.user))
-                navigate("../");
-            }
+        dispatch(setAuth({
+            firstName: "Maksim",
+            LastName: "Abakanovocih",
+            avatar: "../../assets/img/user.png",
+            email: userData.email,
+        }));
 
-            else if (res.data.status == "invalid") {
-                toastr.warning(res.data.message, "Warning");
-            }
+        navigate("../");
 
-            else if (res.data.status == "error") {
-                toastr.error(res.data.message, "Error");
-            }
+        // await apiSignIn(userData).then(res => {
+        //     if (res.data.status == "success") {
+        //         toast.success(res.data.message, "Success");
+        //         dispatch(setAuth(res.data.user))
+        //         navigate("../");
+        //     }
 
-            else {
-                toastr.error("Server Error", "Error");
-            }
-        })
+        //     else if (res.data.status == "invalid") {
+        //         toast.warning(res.data.message, "Warning");
+        //     }
+
+        //     else if (res.data.status == "error") {
+        //         toast.error(res.data.message, "Error");
+        //     }
+
+        //     else {
+        //         toast.error("Server Error", "Error");
+        //     }
+        // })
     }
 
     return (
-        <div className="bg-white p-20 rounded-lg shadow-md">
+        <div className="bg-white p-10 lg:p-20 rounded-lg shadow-md">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Sign in to Soda PDF

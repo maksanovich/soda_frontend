@@ -8,14 +8,16 @@ import App from './App';
 import Loading from './components/Loading';
 
 import { store } from './store'
+import CustomToast from './components/CustomToast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback={<Loading />}>
+        <CustomToast />
         <App />
       </Suspense>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

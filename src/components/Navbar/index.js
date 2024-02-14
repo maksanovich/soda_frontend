@@ -17,6 +17,8 @@ import { removeAuth } from '../../store/reducers/auth';
 
 import Logo from './../../assets/img/logo-soda.svg';
 import Avatar from '../../assets/img/user_avatar.jpg'
+import userAvatar from '../../assets/img/user.png'
+
 import { Link, useLocation } from 'react-router-dom';
 
 const navigation = [
@@ -56,12 +58,11 @@ export default function Navbar() {
     }, [])
 
     const onClickLogout = () => {
-        // dispatch(removeAuth());
-        // dispatch(removeBotAll());
+        dispatch(removeAuth());
     }
 
     return (
-        <Disclosure as="nav" className="bg-gray-200 w-full fixed z-50">
+        <Disclosure as="nav" className="bg-white w-full fixed z-50">
             {({ open }) => (
                 <>
                     <div className={`mx-auto bxl:max-w-[1600px] max-w-full px-3`}>
@@ -94,8 +95,8 @@ export default function Navbar() {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'text-white border-b-2' : 'text-gray-500  hover:text-white',
-                                                    'px-3 py-2 text-sm font-medium w-[125px] text-center'
+                                                    item.current ? 'text-white border-b-2' : 'text-gray-800',
+                                                    'px-3 py-2 text-md font-medium w-[125px] text-center'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
@@ -106,27 +107,18 @@ export default function Navbar() {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <img src={Avatar} alt='avatar' className='w-10 rounded-full mr-2 cursor-pointer'/>
-                                <Link to='signin' className='text-gray-500'>Sign In</Link>
-                                <button
-                                    type="button"
-                                    className={`${!isLoggedIn ? 'hidden' : 'block'} relative rounded-full bg-gray-700 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800`}
-                                >
-                                    <span className="absolute -inset-1.5" />
-                                    <span className="sr-only">View notifications</span>
-                                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
-
+                                <img src={Avatar} alt='avatar' className={`${isLoggedIn ? 'hidden' : 'block'} w-8 rounded-full mr-3 cursor-pointer`} />
+                                <Link to='signin' className={`${isLoggedIn ? 'hidden' : 'block'} text-gray-800`}>Sign In</Link>
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className={`${!isLoggedIn ? 'hidden' : 'block'} relative ml-3`}>
                                     <div>
-                                        <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                        <Menu.Button className="relative flex rounded-full bg-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only">Open user menu</span>
                                             <img
-                                                className="h-8 w-8 rounded-full"
-                                                src={user.avatar}
+                                                className="h-10 w-10 rounded-full"
+                                                src={userAvatar}
                                                 alt="User Avatar"
                                             />
                                         </Menu.Button>
