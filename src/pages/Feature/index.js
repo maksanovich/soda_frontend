@@ -22,7 +22,7 @@ export default function Feature() {
                         <span className="text-[#ff6166]"> PDF tools </span>
                         <span>you'll ever need</span>
                     </div>
-                    <div className="md:flex justify-center items-center mt-4">
+                    <div className="md:flex justify-center items-center mt-4 text-center">
                         <button className="my-1 rounded-3xl bg-[#ff6166] text-white border-2  border-transparent text-base uppercase py-2 px-5 font-semibold hover:bg-[#e64046]" >Free download</button>
                         <button className="sm:ml-4 ml-1 rounded-3xl bg-white text-[#ff6166] border-2 border-[#ff6166] text-base uppercase py-2 px-5 font-semibold hover:bg-[#ff6166] hover:text-white" >buy now</button>
                     </div>

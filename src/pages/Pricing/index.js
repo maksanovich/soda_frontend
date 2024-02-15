@@ -6,8 +6,8 @@ import { PricingCard } from "../../components/PricingCard";
 
 const Pricing = () => {
   return (
-    <section className="relative z-10 overflow-hidden bg-white pb-8 pt-20 dark:bg-dark lg:pb-[50px] lg:pt-[50px]">
-      <div className="container mx-auto px-2 lg:px-8">
+    <section className="relative z-2 overflow-hidden bg-white pb-8 pt-20 dark:bg-dark lg:pb-[50px] lg:pt-[50px]">
+      <div className="px-2 lg:px-16">
         <div className="flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[510px] text-center">

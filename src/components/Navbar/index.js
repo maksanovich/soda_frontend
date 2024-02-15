@@ -60,6 +60,7 @@ export default function Navbar() {
     const { isLoggedIn, user } = useSelector((state) => state.auth);
 
     const [isShowSubNav, setShowSubNav] = useState(false);
+    const [isShowSubNavMD, setShowSubNavMD] = useState(false);
 
     useEffect(() => {
         const handleClick = (event) => {
@@ -222,18 +223,56 @@ export default function Navbar() {
                         <Disclosure.Panel className="md:hidden">
                             <div className="space-y-1 px-2 pb-3 pt-2">
                                 {navigation.map((item) => (
-                                    <Disclosure.Button
-                                        key={item.name}
-                                        as="a"
-                                        href={item.href}
-                                        className={classNames(
-                                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                            'block rounded-md px-3 py-2 text-base font-medium'
-                                        )}
-                                        aria-current={item.current ? 'page' : undefined}
-                                    >
-                                        {item.name}
-                                    </Disclosure.Button>
+                                    item?.subNav
+                                        ? <div key={item.name}>
+                                            < div
+
+                                                className={
+                                                    classNames(
+                                                        item.current ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                        isShowSubNavMD && 'text-[#ff6166]',
+                                                        'block rounded-md px-3 py-2 text-base font-medium subNavDiv'
+                                                    )}
+                                                aria-current={item.current ? 'page' : undefined}
+                                                onClick={() => setShowSubNavMD(!isShowSubNavMD)}
+                                            >
+                                                {item.name}
+
+                                            </div>
+                                            <div className={`${isShowSubNavMD ? 'block' : 'hidden'}`}>
+                                                <div className='grid grid-cols-2 sm:grid-cols-3'>
+                                                    {
+                                                        subNavData.map((item, index) => (
+                                                            <div key={index}>
+                                                                <h4 className='text-sm font-bold my-3'>{item.title}</h4>
+                                                                <div>
+                                                                    {
+                                                                        item.data.map((data, index) => (
+                                                                            <div key={index} className='flex items-center'>
+                                                                                <a href={'/tools/' + data.url} className='my-1 text-sm ml-1 cursor-pointer hover:text-[#ff6166]'>{data.text}</a>
+                                                                            </div>
+                                                                        ))
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        :
+                                        <Disclosure.Button
+                                            key={item.name}
+                                            as="a"
+                                            href={item.href}
+                                            className={classNames(
+                                                item.current ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                'block rounded-md px-3 py-2 text-base font-medium'
+                                            )}
+                                            aria-current={item.current ? 'page' : undefined}
+                                        >
+                                            {item.name}
+                                        </Disclosure.Button>
                                 ))}
                             </div>
                         </Disclosure.Panel>
@@ -243,7 +282,7 @@ export default function Navbar() {
 
             </Disclosure >
 
-            <div id='subNavDiv' className={`${isShowSubNav ? 'block' : 'hidden'} z-10 w-full fixed top-[60px] text-black bg-gray-50 p-10 shadow-md subNavDiv`}>
+            <div className={`${isShowSubNav ? 'block' : 'hidden'} z-10 w-full fixed top-[60px] text-black bg-gray-50 p-10 shadow-md subNavDiv`}>
                 <div className='grid grid-flow-col'>
                     {
                         subNavData.map((item, index) => (
