@@ -3,6 +3,8 @@ import { lazy } from "react";
 import MainLayout from "../components/Layout/MainLayout";
 
 const Feature = lazy(() => import("../pages/Feature"));
+const Pricing = lazy(() => import("../pages/Pricing"));
+const Support = lazy(() => import("../pages/Support"));
 
 const MainRoutes = {
     path: "/",
@@ -12,14 +14,14 @@ const MainRoutes = {
             path: "",
             element: <Feature />,
         },
-        // {
-        //     path: "sell",
-        //     element: <Sell />,
-        // },
-        // {
-        //     path: "profile",
-        //     element: <Profile />,
-        // },
+        {
+            path: "pricing",
+            element: <Pricing />,
+        },
+        {
+            path: "support",
+            element: <Support />,
+        },
         // {
         //     path: "support",
         //     element: <Support />,

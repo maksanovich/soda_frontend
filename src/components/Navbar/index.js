@@ -46,11 +46,14 @@ export default function Navbar() {
 
     useEffect(() => {
         switch (location?.pathname) {
-            case '/sell':
+            case '/features':
                 navigation[0].current = true;
                 break;
+            case '/pricing':
+                navigation[2].current = true;
+                break;
             case '/support':
-                navigation[1].current = true;
+                navigation[3].current = true;
                 break;
             default:
                 break;
@@ -62,7 +65,7 @@ export default function Navbar() {
     }
 
     return (
-        <Disclosure as="nav" className="bg-white w-full fixed z-50">
+        <Disclosure as="nav" className="bg-white w-full fixed z-50 shadow-md">
             {({ open }) => (
                 <>
                     <div className={`mx-auto bxl:max-w-[1600px] max-w-full px-3`}>
@@ -95,7 +98,7 @@ export default function Navbar() {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'text-white border-b-2' : 'text-gray-800',
+                                                    item.current ? 'text-[#ff6166]' : 'text-gray-800',
                                                     'px-3 py-2 text-md font-medium w-[125px] text-center'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}

@@ -12,10 +12,12 @@ import {
 import HoverButton from "../../components/HoverButton"
 import ToolGroup from "../../components/ToolGroup";
 
+import Introduction from '../../assets/img/feature.png'
+
 export default function Feature() {
     return (
         <div className="p-0 m-0">
-            <div className="mt-20 px-10 md:flex justify-center w-full">
+            <div className="mt-20 px-10 lg:px-20 md:flex justify-center w-full">
                 <div className="md:w-[40%]">
                     <div className="text-4xl font-black text-center md:text-left text-black">
                         <span>All the Desktop & Online</span>
@@ -27,8 +29,8 @@ export default function Feature() {
                         <button className="ml-4 rounded-3xl bg-white text-[#ff6166] border-2 border-[#ff6166] text-base uppercase py-2 px-5 font-semibold hover:bg-[#ff6166] hover:text-white" >buy now</button>
                     </div>
                 </div>
-                <div className="text-center md:w-[60%] mt-10 md:mt-0">
-                    Image or video
+                <div className="flex justify-center md:w-[60%] mt-10 md:mt-0">
+                    Sample Image
                 </div>
             </div>
 
