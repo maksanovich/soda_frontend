@@ -5,6 +5,7 @@ import MainLayout from "../components/Layout/MainLayout";
 const Feature = lazy(() => import("../pages/Feature"));
 const Pricing = lazy(() => import("../pages/Pricing"));
 const Support = lazy(() => import("../pages/Support"));
+const Tools = lazy(() => import("../pages/Tools"));
 
 const MainRoutes = {
     path: "/",
@@ -22,10 +23,10 @@ const MainRoutes = {
             path: "support",
             element: <Support />,
         },
-        // {
-        //     path: "support",
-        //     element: <Support />,
-        // }
+        {
+            path: "tools/:name",
+            element: <Tools />,
+        }
     ],
 };
 

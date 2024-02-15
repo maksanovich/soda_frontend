@@ -25,19 +25,23 @@ export const subNavData = [
         data: [
             {
                 icon: MdPreview,
-                text: 'Merge PDF'
+                text: 'Merge PDF',
+                url: 'merge-pdf',
             },
             {
                 icon: MdPreview,
-                text: 'Compress PDF'
+                text: 'Compress PDF',
+                url: 'compress-pdf',
             },
             {
                 icon: MdPreview,
-                text: 'PDF Converter'
+                text: 'PDF Converter',
+                url: 'pdf-converter'
             },
             {
                 icon: MdPreview,
-                text: 'Split PDF'
+                text: 'Split PDF',
+                url: 'split-pdf'
             },
         ]
     },

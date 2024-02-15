@@ -14,12 +14,12 @@ import {
 const SubTool = ({ item }) => {
     return (
         <div className='p-3'>
-            <h2 className='font-bold text-lg my-3'>{item.title}</h2>
+            <h2 className='text-sm font-bold sm:text-lg my-3'>{item.title}</h2>
             <div>
                 {
                     item?.data &&
                     item.data.map((data, index) => (
-                        <h5 key={index} className='cursor-pointer hover:text-[#ff6166] text-gray-600'> {data} </h5>
+                        <h5 key={index} className='text-xs cursor-pointer hover:text-[#ff6166] text-gray-600'> {data} </h5>
                     ))
                 }
             </div>
@@ -31,8 +31,8 @@ const Footer = () => {
     return (
         <>
             <div className='mt-5 p-5'>
-                <div className='w-full flex justify-between items-center'>
-                    <div>
+                <div className='w-full sm:flex justify-between items-center'>
+                    <div className='flex justify-center items-center my-1'>
                         <Link to='/'>
                             <img
                                 className="h-8 w-auto"
@@ -41,14 +41,14 @@ const Footer = () => {
                             />
                         </Link>
                     </div>
-                    <div className='flex items-center'>
+                    <div className='flex items-center justify-center my-3'>
                         {
                             SocialIcons.map((Item, index) => (
                                 <Item key={index} className='text-black mx-3 text-3xl cursor-pointer' />
                             ))
                         }
                     </div>
-                    <div className='flex items-center'>
+                    <div className='flex items-center justify-center'>
                         <img src={PDFAssociation} alt='pdf' className='w-[70px]' />
                         <img src={WinterBlack} alt='winterBlack' className='w-[50px] ml-3' />
                     </div>
