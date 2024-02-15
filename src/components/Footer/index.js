@@ -30,7 +30,7 @@ const SubTool = ({ item }) => {
 const Footer = () => {
     return (
         <>
-            <div className='mt-5 p-5'>
+            <div className='mt-5 p-5 lg:p-20 bxl:w-[1800px] bxl:m-auto'>
                 <div className='w-full sm:flex justify-between items-center'>
                     <div className='flex justify-center items-center my-1'>
                         <Link to='/'>

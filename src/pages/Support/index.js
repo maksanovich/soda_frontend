@@ -4,9 +4,9 @@ export default function Support() {
     return (
         <div>
             <div className="bg-gray-100 py-20">
-                <div className="text-center m-auto max-w-[500px]">
-                    <h1 className="font-black text-5xl text-black">Got questions?</h1>
-                    <h1 className="font-black text-5xl text-black">We're here to help!</h1>
+                <div className="text-center m-auto max-w-[500px] px-3">
+                    <h1 className="font-black text-xl md:text-5xl text-black">Got questions?</h1>
+                    <h1 className="font-black text-xl md:text-5xl text-black">We're here to help!</h1>
                     <p className="my-5 text-gray-500">Search our Knowledge Base articles or contact one of our support agents to get the answers you need.</p>
                     <div className="mt-10 leading-none">
                         <span className="text-xs">

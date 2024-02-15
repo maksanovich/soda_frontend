@@ -16,7 +16,8 @@ export const subNavData = [
         data: [
             {
                 icon: MdPreview,
-                text: 'Chat with PDF'
+                text: 'Chat with PDF',
+                url: 'ai-pdf',
             }
         ]
     },
@@ -71,15 +72,18 @@ export const subNavData = [
         data: [
             {
                 icon: MdPreview,
-                text: 'PDF to Word'
+                text: 'PDF to Word',
+                url: 'pdf2word'
             },
             {
                 icon: MdPreview,
-                text: 'PDF to Excel'
+                text: 'PDF to Excel',
+                url: 'pdf2excel'
             },
             {
                 icon: MdPreview,
-                text: 'PDF to PPT'
+                text: 'PDF to PPT',
+                url: 'pdf2ppt'
             }
         ]
     },
@@ -88,19 +92,23 @@ export const subNavData = [
         data: [
             {
                 icon: MdPreview,
-                text: 'Word to PDF'
+                text: 'Word to PDF',
+                url: 'word2pdf'
             },
             {
                 icon: MdPreview,
-                text: 'Excel to PDF'
+                text: 'Excel to PDF',
+                url: 'excel2pdf'
             },
             {
                 icon: MdPreview,
-                text: 'PPT to PDF'
+                text: 'PPT to PDF',
+                url: 'ppt2pdf'
             },
             {
                 icon: MdPreview,
-                text: 'TXT to PDF'
+                text: 'TXT to PDF',
+                url: 'txt2pdf'
             }
         ]
     },

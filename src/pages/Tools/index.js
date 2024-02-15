@@ -27,7 +27,7 @@ export default function Tools() {
     }, [name])
 
     return (
-        <div className="bg-gray-100 py-5">
+        <div className="bg-gray-100 py-5 px-2 lg:px-16">
             <div className="text-center">
                 <h1 className="font-black text-3xl my-4">{title}</h1>
             </div>

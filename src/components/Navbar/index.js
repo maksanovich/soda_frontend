@@ -47,8 +47,6 @@ const navigation = [
 
 const userNavigation = [
     { name: 'Profile', href: '/profile', icon: UserCircleIcon },
-    { name: 'Admin', href: '/admin', icon: ShieldCheckIcon },
-    { name: 'Info', href: '/info', icon: InformationCircleIcon },
     { name: 'Logout', href: '#', icon: ArrowRightOnRectangleIcon, function: true },
 ]
 
@@ -164,13 +162,13 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-                                        <div className='flex items-center justify-center sm:w-[110px]'>
+                                        <div className={`${isLoggedIn ? 'hidden' : 'block'} flex items-center justify-center sm:w-[110px]`}>
                                             <img src={Avatar} alt='avatar' className={`${isLoggedIn ? 'hidden' : 'block'} hidden sm:block w-8 rounded-full mr-3 cursor-pointer`} />
                                             <Link to='signin' className={`${isLoggedIn ? 'hidden' : 'block'} text-gray-800`}>Sign In</Link>
                                         </div>
 
                                         {/* Profile dropdown */}
-                                        <Menu as="div" className={`${!isLoggedIn ? 'hidden' : 'block'} relative ml-3`}>
+                                        <Menu as="div" className={`${!isLoggedIn ? 'hidden' : 'block'} relative w-[40px]`}>
                                             <div>
                                                 <Menu.Button className="relative flex rounded-full bg-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                                     <span className="absolute -inset-1.5" />
@@ -192,6 +190,9 @@ export default function Navbar() {
                                                 leaveTo="transform opacity-0 scale-95"
                                             >
                                                 <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                    <div className='flex justify-center p-2 border-b-2 text-sm text-gray-500 '>
+                                                        Maksim Abaknovich
+                                                    </div>
                                                     {userNavigation.map((item) => (
                                                         <Menu.Item key={item.name}>
                                                             {({ active }) => (

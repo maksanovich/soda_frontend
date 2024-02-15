@@ -24,7 +24,7 @@ const ButtonGroup = ({ item, isTool = false, isReverse = false }) => {
 
   return (
     <button
-      className={`${isTool ? 'text-sm' : 'mx-2' } px-3 py-1 ${isReverse ? '' : 'border-2'} rounded-3xl`}
+      className={`${isTool ? 'text-sm' : 'mx-2' } px-3 my-1 py-1 ${isReverse ? '' : 'border-2'} rounded-3xl`}
       style={isReverse ? reverseStyle : buttonStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
