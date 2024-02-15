@@ -11,8 +11,7 @@ import {
 
 import HoverButton from "../../components/HoverButton"
 import ToolGroup from "../../components/ToolGroup";
-
-import Introduction from '../../assets/img/feature.png'
+import Tooltip from "../../components/Tooltip";
 
 export default function Feature() {
     return (
@@ -29,7 +28,7 @@ export default function Feature() {
                         <button className="ml-4 rounded-3xl bg-white text-[#ff6166] border-2 border-[#ff6166] text-base uppercase py-2 px-5 font-semibold hover:bg-[#ff6166] hover:text-white" >buy now</button>
                     </div>
                 </div>
-                <div className="flex justify-center md:w-[60%] mt-10 md:mt-0">
+                <div className="text-center md:w-[60%] mt-10 md:mt-0">
                     Sample Image
                 </div>
             </div>
