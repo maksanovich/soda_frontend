@@ -7,7 +7,7 @@ import { subNavData } from "../../constants/navbarConstant";
 export default function Tools() {
 
     const params = useParams();
-    const { name } = params;
+    const { type } = params;
 
     const [title, setTitle] = useState('');
 
@@ -18,20 +18,20 @@ export default function Tools() {
             
             for (let j = 0; j < item.data.length; j++) {
                 const el = item.data[j];
-                if(el.url === name){
+                if(el.url === type){
                     setTitle(el.text);
                     return;
                 }
             }
         }
-    }, [name])
+    }, [type])
 
     return (
         <div className="bg-gray-100 py-5 px-2 lg:px-16">
             <div className="text-center">
                 <h1 className="font-black text-3xl my-4">{title}</h1>
             </div>
-            <DragAndDrop />
+            <DragAndDrop type={type} />
         </div>
     )
 }

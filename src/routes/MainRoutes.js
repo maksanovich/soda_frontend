@@ -24,7 +24,7 @@ const MainRoutes = {
             element: <Support />,
         },
         {
-            path: "tools/:name",
+            path: "tools/:type",
             element: <Tools />,
         }
     ],
